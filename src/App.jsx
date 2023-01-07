@@ -4,7 +4,7 @@ import Filtros from './components/Filtros'
 import ListadoGasto from './components/ListadoGastos'
 import Modal from './components/Modal'
 import { generarId } from './helpers'
-import IconoNuevoGasto from './img/nuevo-gasto.svg'
+import IconoNuevoGasto from './nuevo-gasto.svg'
 
 function App() {
 
