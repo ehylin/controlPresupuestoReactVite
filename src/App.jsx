@@ -11,7 +11,6 @@ function App() {
   const [gastos, setGastos] = useState(
     localStorage.getItem('gastos') ? JSON.parse(localStorage.getItem('gastos')) : []
   )
-
   const [presupuesto, setPresupuesto] = useState(
     Number(localStorage.getItem('presupuesto')) ?? 0
   )
