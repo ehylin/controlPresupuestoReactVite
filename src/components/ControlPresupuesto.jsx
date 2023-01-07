@@ -1,0 +1,39 @@
+import { useState, useEffect } from 'react'
+
+const ControlPresupuesto = ({ presupuesto }) => {
+
+    const formatearCantidad = (cantidad) => {
+        return cantidad.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
+
+
+    return (
+        <div className="contenedor-presupuesto contenedor sombra dos-columnas">
+            <div>ControlPresupuesto</div>
+            <div className="contenido-presupuesto">
+                <button
+                    className="reset-app"
+                    type="button"
+                >
+                    Resetear App
+                </button>
+                <p>
+                    <span>Presupuesto: </span>{formatearCantidad(presupuesto)}
+                </p>
+
+                <p>
+                    <span>Disponible: </span>{formatearCantidad(0)}
+                </p>
+
+                <p>
+                    <span>Gastado: </span>{formatearCantidad(0)}
+                </p>
+            </div>
+        </div>
+    )
+}
+
+export default ControlPresupuesto
