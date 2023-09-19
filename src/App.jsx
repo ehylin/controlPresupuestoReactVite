@@ -24,6 +24,7 @@ function App() {
 
   const [filtro, setFiltro] = useState('')
   const [gastosFiltrados, setGastosFiltrados] = useState([])
+  const [gastosFiltradosTotal, setGastosFiltradosTotal]  = useState([])
 
   useEffect(() => {
     if (Object.keys(gastoEditar).length > 0) {
@@ -45,10 +46,17 @@ function App() {
 
   useEffect(() => {
     if (filtro) {
-      const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro)
-      setGastosFiltrados(gastosFiltrados)
+      const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro);
+      setGastosFiltrados(gastosFiltrados);
+  
+      const gastosFiltradosTotal = gastosFiltrados.reduce((total, gasto) => gasto.cantidad + total, 0);
+      setGastosFiltradosTotal(gastosFiltradosTotal);
+    } else {
+      setGastosFiltrados(gastos);
+      const gastosFiltradosTotal = gastos.reduce((total, gasto) => gasto.cantidad + total, 0);
+      setGastosFiltradosTotal(gastosFiltradosTotal);
     }
-  }, [filtro]);
+  }, [filtro, gastos]);
 
   useEffect(() => {
     const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? 0;
@@ -57,8 +65,6 @@ function App() {
       setIsValidPresupuesto(true)
     }
   }, []);
-
-
 
   const handleNuevoGasto = () => {
     setModal(true)
@@ -116,6 +122,7 @@ function App() {
               eliminarGasto={eliminarGasto}
               filtro={filtro}
               gastosFiltrados={gastosFiltrados}
+              gastosFiltradosTotal={gastosFiltradosTotal}
             />
           </main>
           <div className="nuevo-gasto">

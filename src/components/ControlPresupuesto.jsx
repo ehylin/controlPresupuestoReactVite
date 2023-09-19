@@ -80,6 +80,12 @@ const ControlPresupuesto = ({
                 <p>
                     <span>Gastado: </span>{formatearCantidad(gastado)}
                 </p>
+                <p>
+                    <span>Gastado por categoria: </span>
+                    
+                    <p></p>
+                   
+                </p>
             </div>
         </div>
     )

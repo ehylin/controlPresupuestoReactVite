@@ -6,8 +6,15 @@ const ListadoGastos = ({
     setGastoEditar,
     eliminarGasto,
     filtro,
-    gastosFiltrados
+    gastosFiltrados,
+     gastosFiltradosTotal
 }) => {
+    const formatearCantidad = (cantidad) => {
+        return cantidad.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
     return (
         <div className="listado-gastos contenedor">
 
@@ -15,6 +22,7 @@ const ListadoGastos = ({
             {filtro ? (
                 <>
                     <h2>{gastosFiltrados.length ? 'Gastos' : 'No Hay Gastos en esta categoría'}</h2>
+                    <p>{gastosFiltrados.length ? `Total ${formatearCantidad(gastosFiltradosTotal)}` : 'nana'}</p>
                     {gastosFiltrados.map(gasto => (
                         <Gasto
                             key={gasto.id}
