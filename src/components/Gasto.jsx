@@ -21,10 +21,15 @@ import IconoSuscripciones from '../icono_suscripciones.svg'
 const diccionarioIconos = {
     ahorro: IconoAhorro,
     comida: IconoComida,
+    comidaCalle: IconoComida,
     casa: IconoCasa,
     gastos: IconoGastos,
+    gasolina: IconoGastos,
+    gimnasio: IconoGastos,
     ocio: IconoOcio,
     salud: IconoSalud,
+    salidas: IconoOcio,
+    supermercados: IconoComida,
     suscripciones: IconoSuscripciones
 }
 
